@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+</head>
+<body>
+    <form action="{% url 'tbstore' %}" method='post'>
+        {% csrf_token %}
+        {% for i in exam%}
+            <label for="exam_id">exam id</label>
+            <input type="number" value="{{i.id}}" name="exam_id" readonly>
+            <label for="sem">sem</label>
+            <input type="number" value="{{i.sem}}" name="exam_id" readonly>
+            <label for="date">Date</label>
+            <input type="date" name="date">
+            <label for="course">course</label>
+            <input list="courses" name="course" id="course">
+            <datalist id="courses">
+            {% for j in course%}
+            <option value="{{j.course_id}}:{{j.course_code}}:{{j.course_title}}" label="{{j.course_code}}-{{j.course_title}}">
+            {% endfor %}
+            </datalist>
+        {% endfor %}
+        <input type="submit" onclick="return confirm('are you sure?')">
+    </form>
+</body>
+</html>

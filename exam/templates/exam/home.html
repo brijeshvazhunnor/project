@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+
+        header {
+            background-color: #d74427; /* Green header background */
+            padding: 15px;
+            text-align: center;
+            color: #fff; /* White header text color */
+        }
+
+        nav {
+            background-color: #333; /* Dark gray navigation bar background */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #fff; /* White link text color */
+            background-color: #761f05; /* Green link background color */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition effect */
+        }
+
+        nav a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px; /* Add some space between the header and the content */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exam Management System</main></h1>
+    </header>
+    
+    <nav>
+        <a href="{% url 'exam' %}">Exam Page</a>
+        <a href="{% url 'cpage' %}">Time Table</a>
+        <a href="{% url 'dutyAllotment' %}">Duty Allotment</a>
+        <a href="{% url 'preferTable' %}">Prefer Table</a>
+        <a href="{% url 'course' %}">Course</a>
+        <a href="{% url 'logout' %}">logout</a>
+    </nav>
+
+    <!-- Your existing content goes here -->
+
+</body>
+</html>

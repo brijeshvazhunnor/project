@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination Duty Allotment - Chief</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, button, input[type="date"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Examination Duty Allotment - Chief</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Exam ID</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Graduation Level</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+                <tr>
+                    <td>{{ exam.id }}</td>
+                    <td>{{ exam.sem }}</td>
+                    <td>{{ exam.year }}</td>
+                    <td>{{ exam.month }}</td>
+                    <td>{{ exam.grad_level }}</td>
+                    <td>
+                        <input type="date" id="date_{{ exam.id }}" name="date" required>
+                    </td>
+                    <td>
+                        <a href="{% url 'timetable' pk=exam.id %}">Time table</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
